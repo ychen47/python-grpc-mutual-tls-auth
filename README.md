@@ -39,3 +39,7 @@ The scope of the example should include:
 1) A very simple gRPC function
 2) Server and client setup with mutual tls authentication
 3) Management commands (probably using invoke) to create/manage all necessary tls files and run the server
+
+docker build -t grpc-mtls-test:latest .
+docker run --name mtls-test-server -it -h rvmgrpc-dev.intel.com -v C:\Users\ychen47\source\python-grpc-mutual-tls-auth:/grpc-test -v C:\Users\ychen47\source\python-grpc-mutual-tls-auth/certs:/root/.ssh/certs/grpc_mutual_tls_auth -p 50051:50051 grpc-mtls-test:latest /bin/bash
+docker run --name mtls-test-client -it -v C:\Users\ychen47\source\python-grpc-mutual-tls-auth:/grpc-test -v C:\Users\ychen47\source\python-grpc-mutual-tls-auth/certs:/root/.ssh/certs/grpc_mutual_tls_auth grpc-mtls-test:latest /bin/bash

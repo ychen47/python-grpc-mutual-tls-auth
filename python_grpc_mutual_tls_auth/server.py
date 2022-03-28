@@ -35,7 +35,8 @@ def serve(cfg):
     # it's okay to have multiple threads because poloniex api call uses thread lock
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     grpc_lib.add_GatewayServicer_to_server(GatewayServicer(), server)
-    server.add_secure_port('[::]:50051', server_credentials)
+    # server.add_secure_port('[::]:58000', server_credentials)
+    server.add_insecure_port('[::]:58000')
     server.start()
     try:
         while True:

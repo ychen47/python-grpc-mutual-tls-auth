@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mtls-grpc-test
+  labels:
+    run: mtls-grpc-test
+spec:
+  ports:
+  - port: 58000
+    protocol: TCP
+  selector:
+    run: mtls-grpc-test
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtls-grpc-test
+spec:
+  selector:
+    matchLabels:
+      run: mtls-grpc-test
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: mtls-grpc-test
+    spec:
+      containers:
+      - name: mtls-grpc-test
+        image: amr-registry.caas.intel.com/rvm/grpc-mtls-test:latest
+        ports:
+        - containerPort: 58000

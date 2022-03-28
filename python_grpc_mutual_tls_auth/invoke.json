@@ -1,13 +1,13 @@
 {
   "credentials":{
     "server": {
-      "key": "~/.ssh/certs/grpc_mutual_tls_auth/server/server.key",
-      "cert": "~/.ssh/certs/grpc_mutual_tls_auth/server/server.crt",
-      "host": "localhost"
+      "key": "/grpc-test/certs/server/server.key",
+      "cert": "/grpc-test/certs/server/server.crt",
+      "host": "rvmgrpc-dev.intel.com"
     },
     "client": {
-      "key": "~/.ssh/certs/grpc_mutual_tls_auth/client/client.key",
-      "cert": "~/.ssh/certs/grpc_mutual_tls_auth/client/client.crt"
+      "key": "/grpc-test/certs/client/client.key",
+      "cert": "/grpc-test/certs/client/client.crt"
     }
   }
 }

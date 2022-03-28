@@ -13,7 +13,11 @@ def run(cfg):
         certificate_chain=secrets.load(cfg['credentials']['client']['cert'])
     )
 
-    with grpc.secure_channel('rvmgrpc-dev.intel.com:31402', credentials) as channel:
+    # with grpc.secure_channel('rvmgrpc-dev.intel.com:31402', credentials) as channel:
+    #     stub = grpc_lib.GatewayStub(channel)
+    #     orders = stub.loan_orders(serializer.Currency(name='LTC'))
+    # 10.34.121.124
+    with grpc.insecure_channel('10.34.121.105:31376') as channel:
         stub = grpc_lib.GatewayStub(channel)
         orders = stub.loan_orders(serializer.Currency(name='LTC'))
 
